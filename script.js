@@ -19,8 +19,13 @@ convertBtn.addEventListener('click', () => {
   };
   
   fetch(getAddress(), requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
+  .then(response => response.json())
+  .then(data => {
+    const result = data.result;
+    document.getElementById("outputArea").innerText = result;
+  })
   .catch(error => console.log('error', error));
+
+  
 });
   
