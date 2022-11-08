@@ -13,6 +13,7 @@ const resetInput = () => {
   document.getElementById("from").value = "";
   document.getElementById("to").value = "";
   document.getElementById("amount").value = "";
+  document.getElementById("outputArea").innerHTML = "";
 }
 
 const convertBtn = document.getElementById("convertBtn");
