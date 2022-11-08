@@ -8,9 +8,18 @@
 <body>
     <div class="body_containter">
         <h1>Currency Exchange</h1>
-        <input type="text" name="" id="from" placeholder="From">
-        <input type="text" name="" id="to" placeholder="To">
-        <input type="text" name="" id="amount" placeholder="Amount">
+        <div class="input_container">
+            <label for="from">From</label>
+            <input type="text" name="" id="from" placeholder="e.g. GBP">
+        </div>
+        <div class="input_container">
+            <label for="to">To</label>
+            <input type="text" name="" id="To" placeholder="e.g. EUR">
+        </div>
+        <div class="input_container">
+            <label for="from">Amount</label>
+            <input type="amount" name="" id="amount" placeholder="e.g. 100">
+        </div>
         <div class="button_container">
             <button id="convertBtn">Convert</button>
             <button id="resetBtn">Reset</button>
