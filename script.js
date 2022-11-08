@@ -43,4 +43,3 @@ convertBtn.addEventListener('click', () => {
     .catch(error => document.getElementById("outputArea").innerText = `You have inputed an invalid currency!`);
   }
 });
-  

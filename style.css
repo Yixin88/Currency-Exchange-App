@@ -1,0 +1,72 @@
+body {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/145/787/original/technology-design-of-currency-exchange-on-blue-background-vector.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+.body_containter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 72px;
+    text-align: center;
+}
+
+input {
+    width: 50%;
+    height: 25px;
+    font-size: 28px;
+    padding: 1rem;
+    border: 5px white solid;
+    border-radius: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+input:hover {
+    border: 5px solid rgb(34, 207, 233);
+    transition: all .2s ease-in;;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    border: 5px white solid;
+    border-radius: 10px;
+}
+
+.button_container {
+    display: flex;
+    gap: 30px;
+}
+
+button:hover {
+    border: 5px solid rgb(34, 207, 233);
+    transition: all .2s ease-in;;
+}
+
+button:active {
+    background-color: black;
+    color: white;
+}
+
+#outputArea {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 30px;
+    height: 100px;
+    margin-top: 50px;
+}
