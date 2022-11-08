@@ -27,26 +27,20 @@ convertBtn.addEventListener('click', () => {
     redirect: 'follow',
     headers: myHeaders
   };
-  
-  fetch(getAddress(), requestOptions)
-  .then(response => response.json())
-  .then(data => {
-    const result = parseFloat(data.result);
-    const from = data.query.from.toString();
-    const to = data.query.to.toString();
-    const amount = data.query.amount.toString();
-    console.log(data)
-    if (document.getElementById("amount").value.trim() === "" || document.getElementById("from").value.trim() === "" || document.getElementById("to").value.trim() === "") {
-      document.getElementById("outputArea").innerText = `Please fill in all input`;
-    } else if (result !== undefined) {
-      document.getElementById("outputArea").innerText = `${amount} ${from} = ${result.toFixed(3)} ${to}`;
-    } else {
-      document.getElementById("outputArea").innerText = `You have inputed an invalid currency!`;
-    }
-      
-  })
-  .catch(error => console.log('error', error));
-
-  
+  if (document.getElementById("amount").value.trim() === "" || document.getElementById("from").value.trim() === "" || document.getElementById("to").value.trim() === "") {
+    document.getElementById("outputArea").innerText = `Please fill in all input`;
+  } else {
+    fetch(getAddress(), requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      const result = parseFloat(data.result);
+      const from = data.query.from.toString();
+      const to = data.query.to.toString();
+      const amount = data.query.amount.toString();
+      console.log(data)
+      document.getElementById("outputArea").innerText = `${amount} ${from} = ${result.toFixed(3)} ${to}`;   
+    })
+    .catch(error => document.getElementById("outputArea").innerText = `You have inputed an invalid currency!`);
+  }
 });
   
