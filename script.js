@@ -22,7 +22,7 @@ resetBtn.addEventListener('click', () => {
 })
 
 document.addEventListener('keypress', (event)=>{
-  let keyCode = event.keyCode ? event.keyCode : event.which;
+  let keyCode = event.keyCode;
   if(keyCode === 13) {
     convertBtn.click();
   };
