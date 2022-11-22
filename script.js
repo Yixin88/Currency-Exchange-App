@@ -8,6 +8,25 @@ const getAddress = () => {
   return `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`;
 }
 
+const fetchData = () => {
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    headers: myHeaders
+  };
+  fetch(getAddress(), requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      const result = parseFloat(data.result);
+      const from = data.query.from.toString();
+      const to = data.query.to.toString();
+      const amount = data.query.amount.toString();
+      console.log(data)
+      document.getElementById("outputArea").innerText = `${amount} ${from} = ${result.toFixed(3)} ${to}`;   
+    })
+    .catch(error => document.getElementById("outputArea").innerText = `You have inputed an invalid currency!`);
+}
+
 const resetInput = () => {
   document.getElementById("from").value = "";
   document.getElementById("to").value = "";
@@ -29,24 +48,9 @@ document.addEventListener('keypress', (event)=>{
 });
 
 convertBtn.addEventListener('click', () => {
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow',
-    headers: myHeaders
-  };
   if (document.getElementById("amount").value.trim() === "" || document.getElementById("from").value.trim() === "" || document.getElementById("to").value.trim() === "") {
     document.getElementById("outputArea").innerText = `Please fill in all input`;
   } else {
-    fetch(getAddress(), requestOptions)
-    .then(response => response.json())
-    .then(data => {
-      const result = parseFloat(data.result);
-      const from = data.query.from.toString();
-      const to = data.query.to.toString();
-      const amount = data.query.amount.toString();
-      console.log(data)
-      document.getElementById("outputArea").innerText = `${amount} ${from} = ${result.toFixed(3)} ${to}`;   
-    })
-    .catch(error => document.getElementById("outputArea").innerText = `You have inputed an invalid currency!`);
+    fetchData();
   }
 });
