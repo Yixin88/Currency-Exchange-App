@@ -1,10 +1,11 @@
 var myHeaders = new Headers();
 myHeaders.append("apikey", "keiEm6mToK1Lqp2nh7HCSTnPAEc5OBmu");
 
-const getAddress = () => {
-  const from = document.getElementById("from").value.trim();
-  const to = document.getElementById("to").value.trim();
-  const amount = document.getElementById("amount").value.trim();
+const from = document.getElementById("from");
+const to = document.getElementById("to");
+const amount = document.getElementById("amount");
+
+const getAddress = (to, from, amount) => {
   return `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`;
 }
 
@@ -14,7 +15,7 @@ const fetchData = () => {
     redirect: 'follow',
     headers: myHeaders
   };
-  fetch(getAddress(), requestOptions)
+  fetch(getAddress(from.value.trim(), to.value.trim(), amount.value.trim()), requestOptions)
     .then(response => response.json())
     .then(data => {
       const result = parseFloat(data.result);
