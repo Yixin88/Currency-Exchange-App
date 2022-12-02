@@ -15,7 +15,7 @@ const fetchData = () => {
     redirect: 'follow',
     headers: myHeaders
   };
-  fetch(getAddress(from.value.trim(), to.value.trim(), amount.value.trim()), requestOptions)
+  fetch(getAddress(to.value.trim(), from.value.trim(), amount.value.trim()), requestOptions)
     .then(response => response.json())
     .then(data => {
       const result = parseFloat(data.result);
