@@ -6,7 +6,7 @@ const to = document.getElementById("to");
 const amount = document.getElementById("amount");
 
 const getAddress = (to, from, amount) => {
-  return `https://api.apilayer.com/exchangerates_data/convert?to=${from}&from=${to}&amount=${amount}`;
+  return `https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`;
 }
 
 const fetchData = () => {
